@@ -13,6 +13,7 @@
     "next": "16.2.8",
     "react": "19.2.7",
     "react-dom": "19.2.7",
+    "stripe": "22.2.0",
     "zod": "4.4.3"
   },
   "devDependencies": {

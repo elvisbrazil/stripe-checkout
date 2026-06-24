@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { formatMoney } from "@/lib/money";
 import { MAX_QUANTITY, cartLines, cartTotal } from "./cart";
+import { CheckoutButton } from "./checkout-button";
 import { useCart } from "./use-cart";
 
 export function CartView() {
@@ -64,6 +65,9 @@ export function CartView() {
         <span data-testid="cart-total" className="font-semibold tabular-nums">
           {formatMoney(cartTotal(cart), cart.currency)}
         </span>
+      </div>
+      <div className="mt-6">
+        <CheckoutButton cart={cart} />
       </div>
     </div>
   );
