@@ -10,6 +10,9 @@ export function Header() {
           Paper &amp; Brass
         </Link>
         <nav className="flex items-center gap-5 text-sm text-neutral-600">
+          <Link href="/orders" className="hover:text-neutral-900">
+            Orders
+          </Link>
           <CartLink />
           <CurrencySelect />
         </nav>
