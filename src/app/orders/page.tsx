@@ -33,9 +33,7 @@ export default function OrdersPage() {
               <tr key={order.id}>
                 <td className="p-3 font-mono text-xs">{order.id}</td>
                 <td className="p-3">{dateFormat.format(new Date(order.createdAt))}</td>
-                <td className="p-3">
-                  {order.lines.reduce((sum, line) => sum + line.quantity, 0)}
-                </td>
+                <td className="p-3">{order.lines.reduce((sum, line) => sum + line.quantity, 0)}</td>
                 <td className="p-3 text-right tabular-nums">
                   {formatMoney(order.total, order.currency)}
                 </td>

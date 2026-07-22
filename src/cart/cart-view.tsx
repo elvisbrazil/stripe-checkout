@@ -49,7 +49,9 @@ export function CartView() {
                 +
               </button>
             </div>
-            <span className="w-28 text-right tabular-nums">{formatMoney(total, cart.currency)}</span>
+            <span className="w-28 text-right tabular-nums">
+              {formatMoney(total, cart.currency)}
+            </span>
             <button
               type="button"
               onClick={() => remove(product.id)}

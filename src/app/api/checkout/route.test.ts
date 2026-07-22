@@ -12,7 +12,10 @@ function mockSessionCreate() {
   const requests: CapturedRequest[] = [];
   server.use(
     http.post("https://api.stripe.com/v1/checkout/sessions", async ({ request }) => {
-      requests.push({ params: new URLSearchParams(await request.text()), headers: request.headers });
+      requests.push({
+        params: new URLSearchParams(await request.text()),
+        headers: request.headers,
+      });
       return HttpResponse.json({
         id: "cs_test_123",
         object: "checkout.session",
@@ -83,7 +86,11 @@ describe("POST /api/checkout", () => {
     expect(params.get("client_reference_id")).toBe(order.id);
     expect(params.get("payment_intent_data[metadata][orderId]")).toBe(order.id);
     expect(headers.get("idempotency-key")).toBe(`checkout-session-${order.id}`);
-    expect(order).toMatchObject({ status: "pending", total: 2200, checkoutSessionId: "cs_test_123" });
+    expect(order).toMatchObject({
+      status: "pending",
+      total: 2200,
+      checkoutSessionId: "cs_test_123",
+    });
   });
 
   it("rejects unknown products without calling Stripe", async () => {

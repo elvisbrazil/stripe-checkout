@@ -23,10 +23,14 @@ export default async function SuccessPage({ searchParams }: Props) {
   return (
     <>
       {paid && <ClearCart />}
-      <h1 className="text-2xl font-semibold">{paid ? "Thanks for your order" : "Payment pending"}</h1>
+      <h1 className="text-2xl font-semibold">
+        {paid ? "Thanks for your order" : "Payment pending"}
+      </h1>
       <p className="mt-2 text-neutral-600">
         Order <span className="font-mono">{session.metadata?.orderId}</span>
-        {session.customer_details?.email && <> - receipt sent to {session.customer_details.email}</>}
+        {session.customer_details?.email && (
+          <> - receipt sent to {session.customer_details.email}</>
+        )}
       </p>
 
       <ul className="mt-6 divide-y divide-neutral-200 rounded-lg border border-neutral-200 bg-white">

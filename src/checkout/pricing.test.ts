@@ -12,7 +12,13 @@ describe("priceItems", () => {
     );
 
     expect(order.lines).toEqual([
-      { productId: "notebook-a5", name: "A5 dot grid notebook", quantity: 2, unitAmount: 1800, total: 3600 },
+      {
+        productId: "notebook-a5",
+        name: "A5 dot grid notebook",
+        quantity: 2,
+        unitAmount: 1800,
+        total: 3600,
+      },
       { productId: "pen-brass", name: "Brass pen", quantity: 1, unitAmount: 3200, total: 3200 },
     ]);
     expect(order.total).toBe(6800);

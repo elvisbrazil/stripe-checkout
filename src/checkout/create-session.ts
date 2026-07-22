@@ -1,7 +1,10 @@
 import type Stripe from "stripe";
 import type { Order } from "@/orders/store";
 
-export function buildSessionParams(order: Order, origin: string): Stripe.Checkout.SessionCreateParams {
+export function buildSessionParams(
+  order: Order,
+  origin: string,
+): Stripe.Checkout.SessionCreateParams {
   return {
     mode: "payment",
     line_items: order.lines.map((line) => ({
