@@ -30,6 +30,27 @@ describe("priceItems", () => {
     expect(priceItems([tampered], "BRL").total).toBe(24900);
   });
 
+  it("merges repeated products into a single line", () => {
+    const order = priceItems(
+      [
+        { productId: "mug-ceramic", quantity: 2 },
+        { productId: "mug-ceramic", quantity: 3 },
+      ],
+      "BRL",
+    );
+
+    expect(order.lines).toHaveLength(1);
+    expect(order.lines[0].quantity).toBe(5);
+  });
+
+  it("does not allow splitting a product to go over the quantity limit", () => {
+    const items = [
+      { productId: "mug-ceramic", quantity: 10 },
+      { productId: "mug-ceramic", quantity: 10 },
+    ];
+    expect(() => priceItems(items, "BRL")).toThrow(PricingError);
+  });
+
   it("rejects unknown products", () => {
     expect(() => priceItems([{ productId: "nope", quantity: 1 }], "BRL")).toThrow(PricingError);
   });
