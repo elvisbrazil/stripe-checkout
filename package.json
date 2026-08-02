@@ -14,10 +14,10 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "next": "16.2.8",
+    "next": "16.2.11",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "stripe": "22.2.0",
+    "stripe": "22.2.3",
     "zod": "4.4.3"
   },
   "devDependencies": {
@@ -31,7 +31,7 @@
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "6.0.2",
     "eslint": "9.39.4",
-    "eslint-config-next": "16.2.8",
+    "eslint-config-next": "16.2.11",
     "jsdom": "29.1.1",
     "msw": "2.14.6",
     "prettier": "3.8.4",
