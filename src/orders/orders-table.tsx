@@ -31,6 +31,11 @@ export function OrdersTable({ orders }: { orders: Order[] }) {
             <td className="p-3">{itemCount(order)}</td>
             <td className="p-3 text-right tabular-nums">
               {formatMoney(order.total, order.currency)}
+              {order.amountRefunded > 0 && (
+                <span className="block text-xs text-neutral-500">
+                  -{formatMoney(order.amountRefunded, order.currency)} refunded
+                </span>
+              )}
             </td>
             <td className="p-3">
               <StatusBadge status={order.status} />
