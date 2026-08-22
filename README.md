@@ -29,6 +29,16 @@ Pay with the test card `4242 4242 4242 4242`, any future date and any CVC. Refun
 pnpm test
 ```
 
+## Webhook events
+
+| Event                        | Effect on the order                                |
+| ---------------------------- | -------------------------------------------------- |
+| `checkout.session.completed` | `paid`, stores the payment intent and email        |
+| `checkout.session.expired`   | `expired`, only if the order is still pending      |
+| `charge.refunded`            | `refunded` or `partially_refunded` with the amount |
+
+Anything else is acknowledged and ignored.
+
 ## Design notes
 
 - Prices are stored in cents per currency (BRL and USD). The client only sends product ids and quantities; the checkout route prices everything again from the catalog, so a tampered cart cannot change what is charged.
